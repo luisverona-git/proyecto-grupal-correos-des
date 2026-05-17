@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>temp-mail-studio.html</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark">T</div>
+      <div>
+        <p class="eyebrow">PRIVACIDAD DIGITAL</p>
+        <h1>Temp Mail Studio</h1>
+      </div>
+    </div>
+    <a class="header-link" href="#panel">Probar demo</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">CORREOS DESECHABLES</p>
+        <h2>Crea un correo temporal y revisa mensajes sin exponer tu email real.</h2>
+        <p class="hero-text">Esta interfaz está pensada para integrar una API de temp mail con generación de buzón, lectura de correos y vista rápida de mensajes en una sola pantalla.</p>
+        <div class="hero-actions">
+          <button class="primary-btn" id="generateBtn">Generar correo temporal</button>
+          <button class="secondary-btn" id="refreshBtn">Actualizar bandeja</button>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <p class="card-label">Estado del buzón</p>
+        <div class="mailbox-box">
+          <span id="currentEmail">No generado aún</span>
+          <button id="copyBtn" class="copy-btn">Copiar</button>
+        </div>
+        <div class="hero-stats">
+          <article>
+            <strong id="mailCount">0</strong>
+            <span>Mensajes</span>
+          </article>
+          <article>
+            <strong>600s</strong>
+            <span>Vida estimada</span>
+          </article>
+          <article>
+            <strong>JSON</strong>
+            <span>Respuesta API</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel">
+      <div class="panel-left">
+        <div class="panel-card api-config-card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">CONFIGURACIÓN</p>
+              <h3>Conecta tu API</h3>
+            </div>
+            <span class="status-pill" id="apiStatus">Modo demo</span>
+          </div>
+
+          <label>API Key</label>
+          <input type="text" id="apiKey" placeholder="Pega aquí tu API key" />
+
+          <label>Endpoint crear buzón</label>
+          <input type="text" id="createEndpoint" value="https://hub.juheapi.com/temp-mail/v1/create" />
+
+          <label>Endpoint leer correos</label>
+          <input type="text" id="emailsEndpoint" value="https://hub.juheapi.com/temp-mail/v1/get-emails" />
+
+          <p class="helper-text">Si aún no tienes la key, la web funciona con datos de muestra para presentación visual.</p>
+        </div>
+
+        <div class="panel-card inbox-card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">BANDEJA</p>
+              <h3>Mensajes recibidos</h3>
+            </div>
+            <button class="ghost-btn" id="loadDemoBtn">Cargar demo</button>
+          </div>
+
+          <div class="mail-list" id="mailList"></div>
+        </div>
+      </div>
+
+      <div class="panel-right">
+        <div class="panel-card preview-card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">LECTURA</p>
+              <h3>Vista del mensaje</h3>
+            </div>
+          </div>
+
+          <div class="message-meta">
+            <p><span>De:</span> <strong id="messageFrom">Sin remitente</strong></p>
+            <p><span>Asunto:</span> <strong id="messageSubject">Selecciona un correo</strong></p>
+          </div>
+
+          <article class="message-body" id="messageBody">
+            Cuando generes un buzón o cargues la demo, aquí podrás ver el contenido del mensaje seleccionado.
+          </article>
+        </div>
+
+        <div class="panel-card feature-card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">FUNCIONES</p>
+              <h3>Qué hace esta web</h3>
+            </div>
+          </div>
+
+          <div class="feature-grid">
+            <article>
+              <strong>Generar buzón</strong>
+              <span>Crea una dirección temporal con un clic.</span>
+            </article>
+            <article>
+              <strong>Leer mensajes</strong>
+              <span>Consulta remitente, asunto y contenido.</span>
+            </article>
+            <article>
+              <strong>Copiar correo</strong>
+              <span>Usa la dirección en registros o pruebas.</span>
+            </article>
+            <article>
+              <strong>Modo demo</strong>
+              <span>Presenta el proyecto aunque aún no conectes la key.</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
